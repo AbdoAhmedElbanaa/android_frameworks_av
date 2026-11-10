@@ -2992,6 +2992,10 @@ static const effect_uuid_t SL_V4A_RE_ = // 90380da3-8536-4744-a6a3-5731970e640f
 const effect_uuid_t * const SL_V4A_RE = &SL_V4A_RE_;
 
 // AxionFx
+static const effect_uuid_t SL_AXFX_TYPE_ = // 5867be72-4060-4c55-a378-c1cdef3e1353
+{ 0x5867be72, 0x4060, 0x4c55, 0xa378, {0xc1, 0xcd, 0xef, 0x3e, 0x13, 0x53} };
+const effect_uuid_t * const SL_AXFX_TYPE = &SL_AXFX_TYPE_;
+
 static const effect_uuid_t SL_AXFX_ = // f35cb927-a887-4f3d-847f-770634486d53
 { 0xf35cb927, 0xa887, 0x4f3d, 0x847f, {0x77, 0x06, 0x34, 0x48, 0x6d, 0x53} };
 const effect_uuid_t * const SL_AXFX = &SL_AXFX_;
@@ -3017,9 +3021,13 @@ bool EffectChain::isEffectEligibleForSuspend(const effect_descriptor_t& desc)
           (memcmp(&desc.type, SL_IID_VOLUME, sizeof(effect_uuid_t)) == 0) ||
           (memcmp(&desc.type, SL_IID_DAP, sizeof(effect_uuid_t)) == 0) ||
           (memcmp(&desc.type, SL_IID_DAP_SW, sizeof(effect_uuid_t)) == 0) ||
+          (memcmp(&desc.uuid, SL_IID_DAP_SW, sizeof(effect_uuid_t)) == 0) ||
           (memcmp(&desc.type, SL_IID_DAP_OFFLOAD, sizeof(effect_uuid_t)) == 0) ||
           (memcmp(&desc.type, SL_V4A_RE, sizeof(effect_uuid_t)) == 0) ||
+          (memcmp(&desc.uuid, SL_V4A_RE, sizeof(effect_uuid_t)) == 0) ||
+          (memcmp(&desc.type, SL_AXFX_TYPE, sizeof(effect_uuid_t)) == 0) ||
           (memcmp(&desc.type, SL_AXFX, sizeof(effect_uuid_t)) == 0) ||
+          (memcmp(&desc.uuid, SL_AXFX, sizeof(effect_uuid_t)) == 0) ||
           (memcmp(&desc.type, SL_IID_DYNAMICSPROCESSING, sizeof(effect_uuid_t)) == 0)))) {
         return false;
     }
